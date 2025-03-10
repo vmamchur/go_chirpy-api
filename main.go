@@ -53,7 +53,8 @@ func main() {
 	mux.Handle("POST /api/users", http.HandlerFunc(apiCfg.handlerUsersCreate))
 
 	mux.Handle("POST /api/chirps", http.HandlerFunc(apiCfg.handlerChirpsCreate))
-	mux.Handle("GET /api/chirps", http.HandlerFunc(apiCfg.handlerChirpsGet))
+	mux.Handle("GET /api/chirps", http.HandlerFunc(apiCfg.handlerChirpsRetrieve))
+	mux.Handle("GET /api/chirps/{chirpID}", http.HandlerFunc(apiCfg.handlerChirpsGet))
 
 	mux.Handle("GET /admin/metrics", http.HandlerFunc(apiCfg.handlerMetrics))
 	mux.Handle("POST /admin/reset", http.HandlerFunc(apiCfg.handlerReset))
