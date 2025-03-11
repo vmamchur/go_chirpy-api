@@ -13,7 +13,7 @@ func (cfg *apiConfig) handlerChirpsGet(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusInternalServerError, "Invalid chirp ID", err)
 	}
 
-	chirp, err := cfg.db.GetChirpById(r.Context(), chirpID)
+	chirp, err := cfg.db.GetChirp(r.Context(), chirpID)
 	if err != nil {
 		respondWithError(w, http.StatusNotFound, "Couldn't get chirp", err)
 		return
