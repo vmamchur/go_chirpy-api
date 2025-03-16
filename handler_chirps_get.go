@@ -11,6 +11,7 @@ func (cfg *apiConfig) handlerChirpsGet(w http.ResponseWriter, r *http.Request) {
 	chirpID, err := uuid.Parse(chirpIDString)
 	if err != nil {
 		respondWithError(w, http.StatusInternalServerError, "Invalid chirp ID", err)
+		return
 	}
 
 	chirp, err := cfg.db.GetChirp(r.Context(), chirpID)
